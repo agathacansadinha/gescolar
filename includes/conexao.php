@@ -15,16 +15,16 @@
 try {
 
     $usuario = "root"; // usuário do MySQL.
-    $senha = ""; // senha do MySQL.
+    $senha = "1234"; // senha do MySQL.
     $host = "localhost"; // host onde o servidor MySQL está sendo executado.
     $bd = "gescolar"; // nome do banco de dados.
 
     // Aqui vamos definir configurações para o tratamento de erros e acentos.
-    $config = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    $config = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                     PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
     
     // Aqui criamos uma variável que abriga o objeto PDO, a conexão com o MySQL.                
-    $conexao = new PDO("mysql:host=" . $host . ";bdname=" . $bd, $usuario. $senha, $config);
+    $conexao = new PDO("mysql:host=" . $host . ";dbname=" . $bd, $usuario, $senha, $config);
 
 } catch(Exception $e) {
     echo $e->getMessage();
